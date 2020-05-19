@@ -32,8 +32,8 @@ RUN  apk update && apk upgrade && apk add --no-cache \
   &&  suricata-update enable-source et/open \
   && suricata-update \
   && mkdir /opt/suricataindex \
-  && pip install -r /tmp/requirements.txt \
   && cd /tmp/ \
+  && pip install -r /tmp/requirements.txt \
   && python setup.py install \
   && mkdir /opt/output/ \
   && mkdir /opt/pcaps/ \
@@ -53,6 +53,12 @@ RUN  apk update && apk upgrade && apk add --no-cache \
     g++ \
     lapack-dev \
     gfortran \
-    build-base
+    build-base \
+  && rm -rf /tmp/suricataindex/ \
+  && rm /tmp/requirements.txt \
+  && rm /tmp/setup.py
+
 
 WORKDIR /opt/suricataindex/
+ENTRYPOINT ["sur_cli.py"]
+CMD ["--help"]

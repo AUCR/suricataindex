@@ -1,0 +1,10 @@
+# ignore .git and .cache folders when building docker container
+.git
+.cache
+README.md
+README.md.bu
+LICENSE
+build
+release
+Makefile
+CHANGELOG.md
