@@ -23,7 +23,34 @@ RUN  apk update && apk upgrade && apk add --no-cache \
     gfortran \
     build-base \
     libstdc++ \
-    suricata \
+    pcre-dev \
+    yaml-dev \
+    jansson-dev \
+    build-base \
+    libc-dev \
+    file-dev \
+    automake \
+    autoconf \
+    libtool \
+    libpcap \
+    libpcap-dev \
+    rust \
+    cargo \
+    zlib-dev \
+    py3-yaml \
+    lz4-dev \
+    libcap-ng \
+    libcap-ng-dev \
+    py-setuptools \
+    nss \
+  && cd /tmp/ \
+  && wget https://www.openinfosecfoundation.org/downloads/suricata-6.0.0.tar.gz \
+  && pip install pyyaml \
+  && tar xzvf suricata-6.0.0.tar.gz \
+  && cd suricata-6.0.0 \
+  && ./configure \
+  && make \
+  && make install-full\
   && suricata-update update-sources \
   && suricata-update enable-source tgreen/hunting  \
   && suricata-update enable-source etnetera/aggressive  \
