@@ -46,8 +46,8 @@ RUN  apk update && apk upgrade && apk add --no-cache \
   && cd /tmp/ \
   && wget https://www.openinfosecfoundation.org/downloads/suricata-6.0.2.tar.gz \
   && pip install pyyaml \
-  && tar xzvf suricata-6.0.0.tar.gz \
-  && cd suricata-6.0.0 \
+  && tar xzvf suricata-6.0.2.tar.gz \
+  && cd suricata-6.0.2 \
   && ./configure \
   && make \
   && make install-full\
